@@ -1,3 +1,3 @@
-all: test.c
-	gcc testlib.c hrp_hooking.c -dynamiclib -o libTest.dylib -arch i386 -Wno-deprecated-declarations -DDEBUG
-	gcc -m32 test.c -o test
+harpoon64: test.c harpoon64.c
+	gcc -g test.c -framework CoreServices -Wno-implicit libudis86/*.c harpoon64.c -o test
+	#gcc testlib.c harpoon64.c libudis86/*.c -dynamiclib -o libTest.dylib -Wno-deprecated-declarations -DDEBUG
